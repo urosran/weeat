@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0; }
+
+.App {
+  background: linear-gradient(to bottom right, #deffc9, #a3f8ff);
+  background-color: whitesmoke;
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover; }
+
+.login {
+  background: transparent;
+  background-image: url("https://t3.ftcdn.net/jpg/01/21/87/62/240_F_121876251_dqM6afWpVETNG2P6DRbYTA1tU1nGbjM4.jpg");
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center; }
+
+.HallPicker {
+  background: linear-gradient(to bottom right, #deffc9, #a3f8ff);
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10%;
+  font-family: "Montserrat";
+  color: black;
+  font-size: 2em;
+  margin-bottom: 25vh;
+  font-weight: 1000; }
+  .HallPicker .title {
+    background-color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 50vh;
+    display: flex;
+    margin-top: 0 auto;
+    align-content: center;
+    align-items: center; }
+  .HallPicker .selector {
+    background-color: rgba(255, 255, 255, 0.4);
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-top: 10px;
+    width: 40%;
+    border-style: solid;
+    border-radius: 4px;
+    padding: 5px;
+    min-height: 2em;
+    min-width: 8em;
+    font-size: 40px;
+    font-family: 'Amatic SC', cursive;
+    outline: 0;
+    min-width: 50vw;
+    min-height: 4vh;
+    font-size: 1em;
+    font-family: 'Chivo';
+    color: gray; }
+  .HallPicker .btn {
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    align-content: center;
+    margin-top: 30px;
+    border-width: 1px;
+    background: black;
+    font-family: Montserrat;
+    padding: 10px;
+    color: white;
+    outline: 0;
+    font-size: .6em;
+    font-weight: 100; }
+    .HallPicker .btn :click {
+      background-color: white; }
+
+.header {
+  display: flex;
+  min-height: 4em;
+  background: linear-gradient(to bottom right, #2959b9, #f36477);
+  border-radius: 20px;
+  margin-left: 1em;
+  margin-right: 1em;
+  color: black;
+  font-family: 'Lobster', sans-serif;
+  font-size: 15px;
+  color: white;
+  font-family: 'Lobster', cursive;
+  border-style: line;
+  font-size: 22px; }
+  .header :hover {
+    background-color: yellow; }
+  .header__name {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    align-self: center; }
+  .header__img {
+    margin-top: -12px;
+    font-size: 54px;
+    position: absolute;
+    right: 0;
+    top: 0; }
+
+/* profile class */
+.profile {
+  background: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-height: 5rem;
+  margin: 20px,0,0,20px;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-top: 2em;
+  padding: 5px;
+  padding-top: 0;
+  padding-right: 0;
+  word-wrap: break-word;
+  background: white;
+  box-shadow: 5px 5px 5px 2px grey;
+  color: black;
+  font-family: 'Chivo', sans-serif; }
+  .profile__photo {
+    display: flex;
+    order: 3;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: 0px; }
+  .profile__photo__img {
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    max-height: 4rem; }
+    .profile__photo__img__photo {
+      max-height: 5rem;
+      border-radius: 100px; }
+  .profile__photo__time {
+    font-size: 10px;
+    color: #6d6d6d;
+    align-self: flex-end;
+    padding-right: 10px; }
+  .profile__info__name-container {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    display: flex;
+    font-size: 15px; }
+  .profile__info__description {
+    font-size: 1 rem; }
+
+.name {
+  border: 0;
+  margin: 0; }
+
+/* carousel */
+/* insert media querries here!!!! */
+.carousel {
+  background-color: rgba(237, 243, 231, 0.8);
+  min-height: 400px;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 40px;
+  margin: 1em; }
