@@ -11,6 +11,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.24.1",
+    "concurrently": "^3.5.1",
     "express": "^4.16.2",
     "node-sass-chokidar": "^0.0.3",
     "nodemon": "^1.14.12",
@@ -19,18 +20,17 @@
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.0",
+    "sass-loader": "^6.0.6",
     "webpack": "^3.10.0"
   },
   "scripts": {
-    "build-css": "node-sass-chokidar src/ -o src/",
-    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
-    "start-js": "react-scripts start",
-    "start": "npm-run-all -p watch-css start-js",
-    "build-js": "react-scripts build",
-    "build": "npm-run-all build-css build-js",
+    "start-old": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "westart": "C:\\Program Files\\MongoDB\\Server\\3.6\\bin\\mongod.exe",
-    "server": "nodemon server\\index.js"
+    "server": "nodemon server\\index.js",
+    "webpack": "webpack -w --config webpack.config.js",
+    "start": "concurrently \"npm run webpack\" \"npm run server\""
   }
 }

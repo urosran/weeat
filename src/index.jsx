@@ -5,14 +5,14 @@ import registerServiceWorker from './registerServiceWorker';
 
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
-//css
-import './css/style.css';
+//scss/
+import './scss/style.scss';
 //components
-import App from './components/App';
-import HallPicker from './components/HallPicker'
-import Account from './components/Account';
-import Login from './components/Login';
-import CreateAcc from './components/CreateAcc';
+import App from './components/App.jsx';
+import HallPicker from './components/HallPicker.jsx'
+import Account from './components/Account.jsx';
+import Login from './components/Login.jsx';
+import CreateAcc from './components/CreateAcc.jsx';
 
 
 

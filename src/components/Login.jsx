@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Link } from 'react-router-dom';
-import CreateAcc from './CreateAcc.js'
+import CreateAcc from './CreateAcc.jsx'
 import Route from 'react-router-dom/Route';
 // import CreateAcc from './CreateAcc.js';
 
