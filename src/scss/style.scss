@@ -5,9 +5,6 @@
 // font-family: 'Cabin Sketch', cursive;
 // font-family: 'Fredericka the Great', cursive;
 
-
-
-
 * {
     margin: 0;
     padding: 0;
@@ -16,18 +13,14 @@
 }
 
 .App{
-
     // background-color: #dedede;
     background: linear-gradient(to bottom right, #deffc9, #a3f8ff);
-
     background-color: whitesmoke;
     // background:;
     width: 100%;
     min-height: 100vh;
     background-size: cover;
-
   }
-
 
 .login{
     background: transparent;
@@ -43,7 +36,6 @@
     .buttons{
 
     }
-
 }
 .HallPicker{
     background: linear-gradient(to bottom right, #deffc9, #a3f8ff);
@@ -92,7 +84,6 @@
         font-size: 1em;
         font-family: 'Chivo';
         color: gray;
-
     }
     .btn{
         background: transparent;
@@ -106,7 +97,6 @@
         // background-color: #2959b9;
         font-family: Montserrat;
         padding: 10px;
-
 
         color: white;
         outline: 0;
@@ -132,7 +122,6 @@
     margin-left: 1em;
     margin-right: 1em;
 
-
     &__name{
         width: 60%;
         margin: 0 auto;
@@ -147,14 +136,11 @@
         top: 0;
     }
     //fonts
-
     color: black;
     font-family:'Lobster', sans-serif;
     font-size: 15px;
-
     color: rgb(255, 255, 255);
     font-family: 'Lobster', cursive;
-
     border-style: line;
     font-size: 22px;
 }
@@ -192,21 +178,18 @@
         display: flex;
         flex-direction: column;
         max-height: 4rem;
-    &__photo {
-        max-height: 5rem;
-        border-radius: 100px;
-    }
-
+        &__photo {
+            max-height: 5rem;
+            border-radius: 100px;
+        }
     }
     &__photo__time{
         font-size: 10px;
         color: rgb(109, 109, 109);
         align-self: flex-end;
         padding-right: 10px;
-
     }
     &__info {
-
         &__name-container {
             padding-top: 5px;
             padding-bottom: 5px;
@@ -217,12 +200,10 @@
 
             }
         }
-
         &__description {
             font-size: 1 rem;
             // min-height: 4rem;
         }
-
     }
 }
 
