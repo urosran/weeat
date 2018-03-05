@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-
-
+import Header from './Header.jsx';
 
 //https://scotch.io/tutorials/routing-react-apps-the-complete-guide
 // https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf
@@ -24,6 +22,8 @@ class CreateAcc extends React.Component{
     }
     render(){
         return (
+            <div>
+            <Header />
             <div className="HallPicker">
              <div className='title'> Creating your account</div>
                 <div className=''>
@@ -32,6 +32,8 @@ class CreateAcc extends React.Component{
                     </Link>
                 </div>
             </div>
+            </div>
+
         )
     }
 }

@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const startDb = require('./db.js');
 
 
 // serve static assets from /public folder - bundle.js, imgs, css etc
@@ -15,6 +16,8 @@ app.get("/*", (req,res) => {
     res.sendFile(path.resolve("public/index.html"));
 });
 
-app.listen(3000,()=>{
-    console.log('running on port 3000');
+startDb.then(()=>{
+    app.listen(8080,()=>{
+        console.log('running on port 8080');
+    });
 });
