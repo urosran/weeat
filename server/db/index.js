@@ -8,7 +8,7 @@ const chalk = require('chalk');
 mongoose.connect(process.env.DATABASE);
 let db = mongoose.connection;
 
-// require("./models");
+require("./models");
 
 const startDbPromise = new Promise(function(resolve, reject){
     db.on('open', resolve);
