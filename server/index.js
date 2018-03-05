@@ -19,8 +19,8 @@ app.get("/*", (req,res) => {
 });
 
 startDb.then(()=>{
-    app.listen(8080,()=>{
-        console.log('running on port 8080');
+    app.listen(process.env.PORT, ()=>{
+        console.log(`running on port ${process.env.PORT}`);
     });
 });
 
