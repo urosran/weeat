@@ -1,5 +1,5 @@
 import React from 'react';
-
+import helpers from '../../helpers.js'
 
 class Profile extends React.Component{
     render(){
@@ -8,7 +8,7 @@ class Profile extends React.Component{
 
                 <div className="profile__photo">
                     <img className="profile__photo__img" src= "" />
-                    <p className="profile__photo__time">Just Now</p>
+                    <p className="profile__photo__time"> {helpers.moment().endOf("day").fromNow()}</p>
                 </div>
 
                 <div className="profile__info">

@@ -2,11 +2,11 @@
 import React from 'react';
 import ReactDOM, { render } from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
-
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 //scss/
 import './scss/style.scss';
+
 //components
 import App from './components/App.jsx';
 import HallPicker from './components/HallPicker.jsx'
@@ -15,14 +15,12 @@ import Login from './components/Login.jsx';
 import CreateAcc from './components/CreateAcc.jsx';
 
 
-
 const NoMatch = () => {
     return <h1>404 DINASOUR</h1>
 }
 
 const Root = () => {
     return(
-        // <div className="uros">
     <Router>
         <Switch>
             <Route exact path='/' component={Login} />
@@ -37,12 +35,6 @@ const Root = () => {
     </Router>
     )
 }
-
-
-// HallPicker.contextTypes = {
-//     router: React.PropTypes.object
-// }
-
 
 ReactDOM.render(<Root />, document.getElementById('main'));
 registerServiceWorker();

@@ -10,7 +10,7 @@ class ProfileContainer extends React.Component{
 
     async getusers() {
         let data = await fetch("/db/info", {
-            method: "POST"
+            method: "GET"
         });
 
         data = await data.json();
@@ -22,7 +22,8 @@ class ProfileContainer extends React.Component{
     render(){
         return(
             <div>
-                {Object.keys(data).map( (profile, index) => <Profile key={index} info={data} />) }
+                {Object.keys(data).map( (profile, index) =>
+                 <Profile key={index} info={data} />) }
             </div>
         )
     }

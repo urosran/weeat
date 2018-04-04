@@ -4,9 +4,7 @@ const mongoose = require('mongoose');
 const app = express();
 const user = mongoose.model("user");
 
-app.get("/*", (req, res) => {
-    res.sendStatus(404).end();
-})
+
 
 app.post('/new-user', (req, res) => {
     user.create({
@@ -22,7 +20,13 @@ app.post("/users", (req, res) => {
     });
 
 });
+app.get("/*", (req, res) => {
+    res.sendStatus(404).end();
+})
 
+app.post("/*", (req, res) => {
+    res.sendStatus(404).end();
+})
 module.exports = app;
 
 /*

@@ -14,14 +14,22 @@ app.use((req, res, next) => {
 
 app.use("/db", require("./dbroutes.js"));
 
-app.get("/*", (req,res) => {
+app.get("/*", (req, res) => {
     res.sendFile(path.resolve("public/index.html"));
 });
 
-startDb.then(()=>{
-    app.listen(process.env.PORT, ()=>{
-        console.log(`running on port ${process.env.PORT}`);
-    });
-});
+// startDb().then(()=>{
+//     app.listen(process.env.PORT, ()=>{
+//         console.log(`running on port ${process.env.PORT}`);
+//     });
+//     app.listen(process.env.PORT, function() {
+//         console.loog("RUNNING ON PORT", process.env.PORT);
+//     })
+// });
 
-
+async function startServer() {
+    await startDb()
+    await app.listen(process.env.PORT)
+    console.log(`running on port ${process.env.PORT}`);
+}
+startServer();
