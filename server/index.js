@@ -72,14 +72,12 @@ app.get('/login/facebook',
     passport.authenticate('facebook'));
 
 // app.get('/login/facebook/return', (req, res ) => {
-//     console.log("shighfnsad;jksa;gkalfsd");
 //     res.redirect("/usdan");
 // });
 
 app.get('/login/facebook/return',
-    passport.authenticate('facebook', { failureRedirect: '/' }),
+    passport.authenticate('facebook', { failureRedirect: '/login' }),
     function(req, res) {
-        console.log("Successfully reauthenticated after login")
         // Successful authentication, redirect home.
         res.redirect('/usdan');
     }
