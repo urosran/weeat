@@ -22,9 +22,9 @@ class Login extends React.Component{
                     <button className="btn"> GO TO THE NEXT SCREEN </button>
                 </Link>
 
-                <Switch>
+                {/*<Switch>
                     <Route path='./CreateAcc' Component={CreateAcc} />
-                </Switch>
+                </Switch>*/}
 
                 <a href="/login/facebook">Log in with facebook</a>
             </div>

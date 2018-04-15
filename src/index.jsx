@@ -21,7 +21,7 @@ const NoMatch = () => {
 
 const Root = () => {
     return(
-    <Router>
+    <Router basename="/">
         <Switch>
             <Route exact path='/' component={Login} />
             <Route exact path='/hall' component={HallPicker} />

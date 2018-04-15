@@ -111,8 +111,8 @@
 }
 .header{
     // background: linear-gradient(to bottom right, #deffc9, #a3f8ff);
-    position: sticky;
-    top: 0;
+    // position: sticky;
+    // top: 0;
     width: 100vw;
     margin-bottom:4em;
     overflow: hidden;
@@ -125,7 +125,7 @@
     margin-right: .2em;
 
     .sticky {
-        position: fixed;
+        // position: fixed;
         top: 0;
         width: 100%
       }
