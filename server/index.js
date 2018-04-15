@@ -33,7 +33,7 @@ app.use(passport.session());
 passport.use(new Strategy({
    clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL:'https://www.weeat2.herokuapp.com/login/facebook/return'
+    callbackURL:'https://weeat2.herokuapp.com/login/facebook/return'
     },
     function(accessToken, refreshToken, profile, cb) {
     // In this example, the user's Facebook profile is supplied as the user
@@ -71,13 +71,12 @@ app.use("/db", require("./dbroutes.js"));
 app.get('/login/facebook',
     passport.authenticate('facebook'));
 
-app.get('/login/facebook/return',
+app.get('/login/facebook/return', (req, res ) => {
     passport.authenticate('facebook', {
-        failureRedirect: '/login' }),
-    function(req, res) {
-        res.redirect('/usdan');
-    }
-);
+        failureRedirect: '/login',
+        successRedirect: "/usdan"
+    });
+});
 
 app.get('/profile',
     require('connect-ensure-login').ensureLoggedIn(),
