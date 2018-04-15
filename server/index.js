@@ -73,10 +73,7 @@ app.get('/login/facebook',
 
 app.get('/login/facebook/return', (req, res ) => {
     console.log("shighfnsad;jksa;gkalfsd");
-    passport.authenticate('facebook', {
-        failureRedirect: '/',
-        successRedirect: "/usdan"
-    });
+    res.redirect("/usdan");
 });
 
 app.get('/profile',
