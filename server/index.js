@@ -71,10 +71,19 @@ app.use("/db", require("./dbroutes.js"));
 app.get('/login/facebook',
     passport.authenticate('facebook'));
 
-app.get('/login/facebook/return', (req, res ) => {
-    console.log("shighfnsad;jksa;gkalfsd");
-    res.redirect("/usdan");
-});
+// app.get('/login/facebook/return', (req, res ) => {
+//     console.log("shighfnsad;jksa;gkalfsd");
+//     res.redirect("/usdan");
+// });
+
+app.get('/login/facebook/return',
+    passport.authenticate('facebook', { failureRedirect: '/' }),
+    function(req, res) {
+        console.log("Successfully reauthenticated after login")
+        // Successful authentication, redirect home.
+        res.redirect('/usdan');
+    }
+);
 
 app.get('/profile',
     require('connect-ensure-login').ensureLoggedIn(),
