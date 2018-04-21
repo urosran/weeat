@@ -27,14 +27,18 @@
     // background-image: url("https://t3.ftcdn.net/jpg/01/21/87/62/240_F_121876251_dqM6afWpVETNG2P6DRbYTA1tU1nGbjM4.jpg");
     min-height: 100vh;
     display: flex;
+    text-align: center;
     flex-direction: column;
     align-content: center;
     align-items: center;
     .logo{
 
     }
-    .buttons{
-
+    .btn{
+        padding: 20px;
+        background-color: #2959b9;
+        color: white;
+        margin-top: 20%;
     }
 }
 .HallPicker{

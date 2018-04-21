@@ -31,7 +31,7 @@ app.use(passport.session());
 // with a user object, which will be set at `req.user` in route handlers after
 // authentication.
 passport.use(new Strategy({
-   clientID: process.env.CLIENT_ID,
+    clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
     callbackURL:'https://weeat2.herokuapp.com/login/facebook/return'
     },

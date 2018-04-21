@@ -18,15 +18,13 @@ class Login extends React.Component{
         <div>
             <div className="login">
                 <Header />
+                Welcome to WeEat!<br/>
+                Login with facebook below, and start meeting people :)
                 <Link to="./CreateAcc">
-                    <button className="btn"> GO TO THE NEXT SCREEN </button>
+                    {/* <button className="btn"> GO TO THE NEXT SCREEN </button> */}
                 </Link>
-
-                {/*<Switch>
-                    <Route path='./CreateAcc' Component={CreateAcc} />
-                </Switch>*/}
-
-                <a href="/login/facebook">Log in with facebook</a>
+                <button className="btn" href="/login/facebook">Facebook</button>
+                {/* <a href="/login/facebook">Log in with facebook</a> */}
             </div>
         </div>
 
