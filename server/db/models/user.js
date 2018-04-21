@@ -29,7 +29,11 @@ const userSchema = new Schema({
     preferences:{
         type: Array,
         required: true
-    }
+	},
+	eatingAt:{
+		type: String,
+		required:false
+	}
 });
 
 mongoose.model('user', userSchema);

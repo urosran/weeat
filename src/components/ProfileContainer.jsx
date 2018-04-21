@@ -9,7 +9,7 @@ class ProfileContainer extends React.Component{
     }
 
     async getusers() {
-        let data = await fetch("/db/info", {
+        let data = await fetch("../server/db/info", {
             method: "GET"
         });
 

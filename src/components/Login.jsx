@@ -23,8 +23,9 @@ class Login extends React.Component{
                 <Link to="./CreateAcc">
                     {/* <button className="btn"> GO TO THE NEXT SCREEN </button> */}
                 </Link>
-                <button className="btn" href="/login/facebook">Facebook</button>
-                {/* <a href="/login/facebook">Log in with facebook</a> */}
+                <form action="/login/facebook" className="btn">
+                    <input type="submit" value="Facebook" />
+                </form>
             </div>
         </div>
 

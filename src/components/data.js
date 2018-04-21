@@ -39,6 +39,26 @@ let data = {
         url: "http://google.com",
         tags: ['sports', 'tv', 'magic'],
         percent: 10
+    },
+    p7: {
+        name: "uros",
+        url: "http://google.com",
+        tags: ['sports', 'tv', 'magic'],
+        percent: 10
+    },
+
+    p8: {
+        name: "uros",
+        url: "http://google.com",
+        tags: ['sports', 'tv', 'magic'],
+        percent: 10
+    },
+
+    p9: {
+        name: "uros",
+        url: "http://google.com",
+        tags: ['sports', 'tv', 'magic'],
+        percent: 10
     }
 };
 

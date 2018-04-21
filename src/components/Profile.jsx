@@ -3,8 +3,12 @@ import helpers from '../../helpers.js'
 
 class Profile extends React.Component{
     render(){
+        let className = 'profile';
+        if (this.props.isActive) {
+          className += ' profile-active';
+        }
         return(
-            <div className="profile">
+            <div className={className}>
 
                 <div className="profile__photo">
                     <img className="profile__photo__img" src= "" />
@@ -14,6 +18,7 @@ class Profile extends React.Component{
                 <div className="profile__info">
                     <div className="profile__info__name-container">
                         <p className="name">
+                            uros
                             <b>{this.props.info.name}</b>
                         </p>
                     </div>
