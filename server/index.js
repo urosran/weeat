@@ -89,32 +89,47 @@ app.get('/login/facebook/return',
         let lName = fbProfile.displayName.split(" ")[1];
         console.log("db stufzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" + fName);
 
-        user.findOne({id:id}, function(err, response){
-            // console.log(user.find);
-            if (err){
-                console.log("NO USER FOUNDDDDDD");
-                //no user found
-                let newUser = new user({
-                    id:id,
-                    firstName: fName,
-                    lastName: lName
-                })
-                newUser.save(function(err, usr){
-                    if (err){
-                        console.log(err + "--------------------------------------------");
-                    }else{
-                        console.log(usr.id + " saved ---------------------------");
-                    }
-                });
+        User.findOne({ id:id }, (err, existingUser) => {
+            if (err) {consol.log("EROORRRRR______________"); return }
+            if (existingUser) {
+                console.log("USER FOUNDDDDDDDDDDDDDDDDDDDDDDDDDDDDD")
+                console.log(existingUser)
 
-                res.redirect('/createAcc');
-            } else{
-                console.log("USER FOUNDDDDDD");
-                console.log(response);
-                res.redirect('/usdan');
-                //user found
+            //   req.flash('errors', { msg: 'Account with that email address already exists.' });
+              return res.redirect('/usdan');
             }
-        });
+            user.save((err) => {
+              if (err) { return }
+              console.log("savedddddddddddddddddddddddddddddddddddddddddddddd")
+            });
+          });
+
+        // user.findOne({id:id}, function(err, response){
+        //     // console.log(user.find);
+        //     if (err){
+        //         console.log("NO USER FOUNDDDDDD");
+        //         //no user found
+        //         let newUser = new user({
+        //             id:id,
+        //             firstName: fName,
+        //             lastName: lName
+        //         })
+        //         newUser.save(function(err, usr){
+        //             if (err){
+        //                 console.log(err + "--------------------------------------------");
+        //             }else{
+        //                 console.log(usr.id + " saved ---------------------------");
+        //             }
+        //         });
+
+        //         res.redirect('/createAcc');
+        //     } else{
+        //         console.log("USER FOUNDDDDDD");
+        //         console.log(response);
+        //         res.redirect('/usdan');
+        //         //user found
+        //     }
+        // });
         // Logged in w/ fb
         // see if they are in the DB
         // if not add them and get their preferences
