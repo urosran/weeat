@@ -90,6 +90,7 @@ app.get('/login/facebook/return',
         console.log("db stufzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" + fName);
 
         user.findOne({id:id}, function(err, response){
+            // console.log(user.find);
             if (err){
                 console.log("NO USER FOUNDDDDDD");
                 //no user found
@@ -109,7 +110,7 @@ app.get('/login/facebook/return',
                 res.redirect('/createAcc');
             } else{
                 console.log("USER FOUNDDDDDD");
-
+                console.log(response);
                 res.redirect('/usdan');
                 //user found
             }
