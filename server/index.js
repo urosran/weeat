@@ -87,9 +87,11 @@ app.get('/login/facebook/return',
         let id = parseInt(fbProfile.id);
         let fName = fbProfile.displayName.split(" ")[0];
         let lName = fbProfile.displayName.split(" ")[1];
+        console.log("db stufzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" + fName);
 
-        if (user.findOne({id:id},function(err, response){
+        user.findOne({id:id}, function(err, response){
             if (err){
+                console.log("NO USER FOUNDDDDDD");
                 //no user found
                 let newUser = new user({
                     id:id,
@@ -98,18 +100,20 @@ app.get('/login/facebook/return',
                 })
                 newUser.save(function(err, usr){
                     if (err){
-                        console.log(err);
+                        console.log(err + "--------------------------------------------");
                     }else{
                         console.log(usr.id + " saved ---------------------------");
                     }
                 });
 
                 res.redirect('/createAcc');
-            }else{
+            } else{
+                console.log("USER FOUNDDDDDD");
+
                 res.redirect('/usdan');
                 //user found
             }
-        }));
+        });
         // Logged in w/ fb
         // see if they are in the DB
         // if not add them and get their preferences
