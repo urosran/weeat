@@ -5,6 +5,7 @@ const app = express();
 const path = require('path');
 const startDb = require('./db');
 const mongoose = require('mongoose');
+const user = mongoose.model("user");
 var passport = require('passport');
 var Strategy = require('passport-facebook').Strategy;
 
@@ -83,13 +84,30 @@ app.get('/login/facebook/return',
     passport.authenticate('facebook', { failureRedirect: '/login' }),
     function(req, res) {
         // Successful authentication, redirect home.
+        let id = parseInt(fbProfile.id);
+        let fName = fbProfile.displayName.split(" ")[0];
+        let lName = fbProfile.displayName.split(" ")[1];
 
+        if (user.findOne({id:id},function(err, response){
+            if (err){
+                //no user found
+                user.insert(
+                   {
+                       id: id,
+                       firstName: fName,
+                       lastName: lName
+                   }
+                )
+                res.redirect('/createAcc');
+            }else{
+                res.redirect('/usdan');
+                //user found
+            }
+        }));
         // Logged in w/ fb
         // see if they are in the DB
         // if not add them and get their preferences
         // otherwise redirect to /usdan
-
-        res.redirect('/usdan');
     }
 );
 
