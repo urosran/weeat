@@ -91,12 +91,16 @@ app.get('/login/facebook/return',
         if (user.findOne({id:id},function(err, response){
             if (err){
                 //no user found
-                user.insert(
+                user.update(
                    {
                        id: id,
-                       firstName: fName,
-                       lastName: lName
-                   }
+                    //    firstName: fName,
+                    //    lastName: lName
+                   }, {$set:{
+                        id: id,
+                        firstName: fName,
+                        lastName: lName
+                   }}
                 )
                 res.redirect('/createAcc');
             }else{
