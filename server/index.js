@@ -106,6 +106,7 @@ app.get('/login/facebook/return',
             user.save((err) => {
               if (err) { return }
               console.log("savedddddddddddddddddddddddddddddddddddddddddddddd")
+              return res.redirect('/createAcc');
             });
           });
 
