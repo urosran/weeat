@@ -12,7 +12,7 @@ import App from './components/App.jsx';
 import HallPicker from './components/HallPicker.jsx'
 import Account from './components/Account.jsx';
 import Login from './components/Login.jsx';
-import CreateAcc from './components/CreateAcc.jsx';
+import CardExampleGroupProps from './components/CreateAcc.jsx';
 
 
 const NoMatch = () => {
@@ -29,7 +29,7 @@ const Root = () => {
             <Route exact path='/account' component={Account} />
             <Route exact path='/sherman' component={NoMatch} />
             <Route exact path='/usdan' component={App} />
-            <Route exact path='/CreateAcc' component={CreateAcc} />
+            <Route exact path='/CreateAcc' component={CardExampleGroupProps} />
             <Route component={NoMatch}/>
         </Switch>
     </Router>

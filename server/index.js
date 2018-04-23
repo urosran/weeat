@@ -11,6 +11,8 @@ var Strategy = require('passport-facebook').Strategy;
 // serve static assets from /public folder - bundle.js, imgs, css etc
 app.use(express.static(path.join(__dirname, '../public')))
 
+let fbProfile;
+
 // Use application-level middleware for common functionality, including
 // logging, parsing, and session handling.
 // app.use(require('morgan')('combined'));
@@ -41,6 +43,8 @@ passport.use(new Strategy({
     // be associated with a user record in the application's database, which
     // allows for account linking and authentication with other identity
     // providers.
+    fbProfile = profile;
+    console.log(fbProfile);
     return cb(null, profile);
 }));
 
@@ -79,6 +83,12 @@ app.get('/login/facebook/return',
     passport.authenticate('facebook', { failureRedirect: '/login' }),
     function(req, res) {
         // Successful authentication, redirect home.
+
+        // Logged in w/ fb
+        // see if they are in the DB
+        // if not add them and get their preferences
+        // otherwise redirect to /usdan
+
         res.redirect('/usdan');
     }
 );
