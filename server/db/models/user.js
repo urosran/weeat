@@ -36,4 +36,4 @@ const userSchema = new Schema({
 	}
 });
 
-mongoose.model('user', userSchema);
+mongoose.model('User', userSchema);

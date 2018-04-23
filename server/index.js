@@ -5,7 +5,7 @@ const app = express();
 const path = require('path');
 const startDb = require('./db');
 const mongoose = require('mongoose');
-const user = mongoose.model("user");
+const User = mongoose.model("User");
 var passport = require('passport');
 var Strategy = require('passport-facebook').Strategy;
 
@@ -88,6 +88,11 @@ app.get('/login/facebook/return',
         let fName = fbProfile.displayName.split(" ")[0];
         let lName = fbProfile.displayName.split(" ")[1];
         console.log("db stufzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" + fName);
+        const user = new User({
+            id: id,
+            firstName: fName,
+            lastName : lName
+          });
 
         User.findOne({ id:id }, (err, existingUser) => {
             if (err) {consol.log("EROORRRRR______________"); return }
