@@ -91,17 +91,19 @@ app.get('/login/facebook/return',
         if (user.findOne({id:id},function(err, response){
             if (err){
                 //no user found
-                user.update(
-                   {
-                       id: id,
-                    //    firstName: fName,
-                    //    lastName: lName
-                   }, {$set:{
-                        id: id,
-                        firstName: fName,
-                        lastName: lName
-                   }}
-                )
+                let newUser = new user({
+                    id:id,
+                    firstName: fName,
+                    lastName: lName
+                })
+                newUser.save(function(err, usr){
+                    if (err){
+                        console.log(err);
+                    }else{
+                        console.log(usr.id + " saved ---------------------------");
+                    }
+                });
+
                 res.redirect('/createAcc');
             }else{
                 res.redirect('/usdan');
