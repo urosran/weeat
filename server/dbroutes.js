@@ -20,8 +20,8 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.post("/interests", (req, res) => {
     // console.log(JSON.parse(req.body.interests))
     const interests = req.body.interests;
-
-    console.log(JSON.stringify(req.body) + " =zzzzzzzzzzzzzzzzzzzzzzS");
+    console.log(req.user)
+    console.log(JSON.stringify(req) + " =zzzzzzzzzzzzzzzzzzzzzzS");
     User.update({ _id: '5add593349b3740014f08a60' }, { $set: { preferences: interests } }, () => {
 		console.log(("added interets"));
 	});
