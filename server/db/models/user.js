@@ -14,25 +14,14 @@ const userSchema = new Schema({
 		type: String,
 		required: false
 	},
-	email: {
-		type: String,
-		required: false
-	},
-	password: {
-		type: String,
-		required: false
-	},
-	accessTokens: {
-		type: Array,
-		required: false
-    },
     preferences:{
         type: Array,
         required: true
 	},
-	eatingAt:{
+	location:{
 		type: String,
 		required:false
+
 	}
 });
 

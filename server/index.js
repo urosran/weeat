@@ -99,8 +99,6 @@ app.get('/login/facebook/return',
             if (existingUser) {
                 console.log("USER FOUNDDDDDDDDDDDDDDDDDDDDDDDDDDDDD")
                 console.log(existingUser)
-
-            //   req.flash('errors', { msg: 'Account with that email address already exists.' });
               return res.redirect('/usdan');
             }
             user.save((err) => {
@@ -109,37 +107,6 @@ app.get('/login/facebook/return',
               return res.redirect('/createAcc');
             });
           });
-
-        // user.findOne({id:id}, function(err, response){
-        //     // console.log(user.find);
-        //     if (err){
-        //         console.log("NO USER FOUNDDDDDD");
-        //         //no user found
-        //         let newUser = new user({
-        //             id:id,
-        //             firstName: fName,
-        //             lastName: lName
-        //         })
-        //         newUser.save(function(err, usr){
-        //             if (err){
-        //                 console.log(err + "--------------------------------------------");
-        //             }else{
-        //                 console.log(usr.id + " saved ---------------------------");
-        //             }
-        //         });
-
-        //         res.redirect('/createAcc');
-        //     } else{
-        //         console.log("USER FOUNDDDDDD");
-        //         console.log(response);
-        //         res.redirect('/usdan');
-        //         //user found
-        //     }
-        // });
-        // Logged in w/ fb
-        // see if they are in the DB
-        // if not add them and get their preferences
-        // otherwise redirect to /usdan
     }
 );
 

@@ -4,12 +4,12 @@ import React from 'react';
 
 const Header=(props) => {
     return(
-        <div className="header">
-        <div className="header__img">
+        <div className="header1">
+        <div className="header1__img">
             <i className="fa fa-bars" aria-hidden="true"></i>
         </div>
         <i className="ion-plus"></i>
-        <div className="header__name">
+        <div className="header1__name">
             <h1><b>WeEat</b></h1>
         </div>
         </div>

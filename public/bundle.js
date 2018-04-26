@@ -16572,16 +16572,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Header = function Header(props) {
     return _react2.default.createElement(
         "div",
-        { className: "header" },
+        { className: "header1" },
         _react2.default.createElement(
             "div",
-            { className: "header__img" },
+            { className: "header1__img" },
             _react2.default.createElement("i", { className: "fa fa-bars", "aria-hidden": "true" })
         ),
         _react2.default.createElement("i", { className: "ion-plus" }),
         _react2.default.createElement(
             "div",
-            { className: "header__name" },
+            { className: "header1__name" },
             _react2.default.createElement(
                 "h1",
                 null,
