@@ -16744,18 +16744,17 @@ var Profile = function (_React$Component) {
                         _react2.default.createElement(
                             'p',
                             { className: 'name' },
-                            'uros',
                             _react2.default.createElement(
                                 'b',
                                 null,
-                                this.props.info.name
+                                this.props.info.firstName
                             )
                         )
                     ),
                     _react2.default.createElement(
                         'p',
                         { className: 'profile__info__description' },
-                        'Tag1 tag2 tag3'
+                        this.props.info.preferences
                     )
                 )
             );
@@ -62940,7 +62939,7 @@ exports = module.exports = __webpack_require__(739)(undefined);
 
 
 // module
-exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  outline: 0; }\n\n.App {\n  background: linear-gradient(to bottom right, #deffc9, #a3f8ff);\n  background-color: whitesmoke;\n  width: 100%;\n  min-height: 100vh;\n  background-size: cover; }\n\n.login {\n  background: transparent;\n  min-height: 100vh;\n  display: flex;\n  text-align: center;\n  flex-direction: column;\n  align-content: center;\n  align-items: center; }\n  .login .btn {\n    padding: 20px;\n    background-color: #2959b9;\n    color: white;\n    margin-top: 20%; }\n\n.HallPicker {\n  background: linear-gradient(to bottom right, #deffc9, #a3f8ff);\n  display: flex;\n  min-height: 100vh;\n  flex-direction: column;\n  align-items: center;\n  padding-top: 10%;\n  font-family: \"Montserrat\";\n  color: black;\n  font-size: 2em;\n  margin-bottom: 25vh;\n  font-weight: 1000; }\n  .HallPicker .title {\n    background-color: rgba(255, 255, 255, 0.4);\n    margin-bottom: 50vh;\n    display: flex;\n    margin-top: 0 auto;\n    align-content: center;\n    align-items: center; }\n  .HallPicker .selector {\n    background-color: rgba(255, 255, 255, 0.4);\n    flex-direction: column;\n    justify-content: center;\n    margin: 0 auto;\n    margin-top: 20px;\n    padding-top: 10px;\n    width: 40%;\n    border-style: solid;\n    border-radius: 4px;\n    padding: 5px;\n    min-height: 2em;\n    min-width: 8em;\n    font-size: 40px;\n    font-family: 'Amatic SC', cursive;\n    outline: 0;\n    min-width: 50vw;\n    min-height: 4vh;\n    font-size: 1em;\n    font-family: 'Chivo';\n    color: gray; }\n  .HallPicker .btn {\n    background: transparent;\n    display: flex;\n    justify-content: center;\n    margin: 0 auto;\n    align-content: center;\n    margin-top: 30px;\n    border-width: 1px;\n    background: black;\n    font-family: Montserrat;\n    padding: 10px;\n    color: white;\n    outline: 0;\n    font-size: .6em;\n    font-weight: 100; }\n    .HallPicker .btn :click {\n      background-color: white; }\n\n.header1 {\n  clear: both;\n  position: fixed;\n  top: o;\n  width: 100vw;\n  margin-bottom: 4em;\n  overflow: hidden;\n  display: flex;\n  min-height: 4em;\n  background: linear-gradient(to bottom right, #2959b9, #f36477);\n  border-radius: 20px;\n  margin-left: .2em;\n  margin-right: .2em;\n  /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */\n  color: black;\n  font-family: 'Lobster', sans-serif;\n  font-size: 15px;\n  color: white;\n  font-family: 'Lobster', cursive;\n  border-style: line;\n  font-size: 22px; }\n  .header1 .sticky {\n    top: 0;\n    width: 100%; }\n  .header1 .sticky + .content {\n    padding-top: 60px; }\n  .header1__name {\n    width: 60%;\n    margin: 0 auto;\n    text-align: center;\n    align-self: center; }\n  .header1__img {\n    margin-top: -12px;\n    font-size: 54px;\n    position: absolute;\n    right: 0;\n    top: 0; }\n\n/* profile class */\n.profile {\n  background: transparent;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  min-height: 5rem;\n  margin: 20px,0,0,20px;\n  margin-left: 1em;\n  margin-right: 1em;\n  margin-top: 2em;\n  padding: 5px;\n  padding-top: 0;\n  padding-right: 0;\n  word-wrap: break-word;\n  background: white;\n  box-shadow: 5px 5px 5px 2px grey;\n  color: black;\n  font-family: 'Chivo', sans-serif; }\n  .profile__photo {\n    display: flex;\n    order: 3;\n    flex-direction: column;\n    justify-content: flex-end;\n    margin-top: 0px; }\n  .profile__photo__img {\n    margin-bottom: 5px;\n    display: flex;\n    flex-direction: column;\n    max-height: 4rem; }\n    .profile__photo__img__photo {\n      max-height: 5rem;\n      border-radius: 100px; }\n  .profile__photo__time {\n    font-size: 10px;\n    color: #6d6d6d;\n    align-self: flex-end;\n    padding-right: 10px; }\n  .profile__info__name-container {\n    padding-top: 5px;\n    padding-bottom: 5px;\n    padding-left: 10px;\n    display: flex;\n    font-size: 15px; }\n  .profile__info__description {\n    font-size: 1 rem; }\n\n.profile-active {\n  border-color: black; }\n\n.name {\n  border: 0;\n  margin: 0; }\n\n/* carousel */\n/* insert media querries here!!!! */\n.carousel {\n  background-color: rgba(237, 243, 231, 0.8);\n  min-height: 400px;\n  padding: 10px;\n  margin-top: 20px;\n  border-radius: 40px;\n  margin: 1em; }\n\n.bottomMenu {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: fixed;\n  bottom: 0;\n  background: linear-gradient(to bottom right, #2959b9, #f36477);\n  color: black;\n  width: 100%;\n  height: 5vh; }\n  .bottomMenu .bottomButton {\n    width: 20%;\n    height: 5vh;\n    background: linear-gradient(to bottom right, #2959b9, #f36477);\n    font-size: 30px;\n    border: 0; }\n\n.content {\n  padding: 0 !important;\n  text-align: center; }\n", ""]);
+exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  outline: 0; }\n\n.App {\n  background: linear-gradient(to bottom right, #deffc9, #a3f8ff);\n  background-color: whitesmoke;\n  width: 100%;\n  min-height: 100vh;\n  background-size: cover; }\n\n.login {\n  background: transparent;\n  min-height: 100vh;\n  display: flex;\n  text-align: center;\n  flex-direction: column;\n  align-content: center;\n  align-items: center; }\n  .login .btn {\n    padding: 20px;\n    background-color: #2959b9;\n    color: white;\n    margin-top: 20%; }\n\n.HallPicker {\n  background: linear-gradient(to bottom right, #deffc9, #a3f8ff);\n  display: flex;\n  min-height: 100vh;\n  flex-direction: column;\n  align-items: center;\n  padding-top: 10%;\n  font-family: \"Montserrat\";\n  color: black;\n  font-size: 2em;\n  margin-bottom: 25vh;\n  font-weight: 1000; }\n  .HallPicker .title {\n    background-color: rgba(255, 255, 255, 0.4);\n    margin-bottom: 50vh;\n    display: flex;\n    margin-top: 0 auto;\n    align-content: center;\n    align-items: center; }\n  .HallPicker .selector {\n    background-color: rgba(255, 255, 255, 0.4);\n    flex-direction: column;\n    justify-content: center;\n    margin: 0 auto;\n    margin-top: 20px;\n    padding-top: 10px;\n    width: 40%;\n    border-style: solid;\n    border-radius: 4px;\n    padding: 5px;\n    min-height: 2em;\n    min-width: 8em;\n    font-size: 40px;\n    font-family: 'Amatic SC', cursive;\n    outline: 0;\n    min-width: 50vw;\n    min-height: 4vh;\n    font-size: 1em;\n    font-family: 'Chivo';\n    color: gray; }\n  .HallPicker .btn {\n    background: transparent;\n    display: flex;\n    justify-content: center;\n    margin: 0 auto;\n    align-content: center;\n    margin-top: 30px;\n    border-width: 1px;\n    background: black;\n    font-family: Montserrat;\n    padding: 10px;\n    color: white;\n    outline: 0;\n    font-size: .6em;\n    font-weight: 100; }\n    .HallPicker .btn :click {\n      background-color: white; }\n\n.header1 {\n  clear: both;\n  position: fixed;\n  top: o;\n  width: 100%;\n  margin-bottom: 4em;\n  overflow: hidden;\n  display: flex;\n  min-height: 4em;\n  background: linear-gradient(to bottom right, black, white);\n  margin-left: .2em;\n  margin-right: .2em;\n  /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */\n  color: black;\n  font-family: 'Lobster', sans-serif;\n  font-size: 15px;\n  color: white;\n  font-family: 'Lobster', cursive;\n  border-style: line;\n  font-size: 22px; }\n  .header1 .sticky {\n    top: 0;\n    width: 100%; }\n  .header1 .sticky + .content {\n    padding-top: 60px; }\n  .header1__name {\n    width: 60%;\n    margin: 0 auto;\n    text-align: center;\n    align-self: center; }\n  .header1__img {\n    margin-top: -12px;\n    font-size: 54px;\n    position: absolute;\n    right: 0;\n    top: 0; }\n\n/* profile class */\n.profile {\n  background: transparent;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  min-height: 5rem;\n  margin: 20px,0,0,20px;\n  margin-left: 1em;\n  margin-right: 1em;\n  margin-top: 2em;\n  padding: 5px;\n  padding-top: 0;\n  padding-right: 0;\n  word-wrap: break-word;\n  background: white;\n  box-shadow: 5px 5px 5px 2px grey;\n  color: black;\n  font-family: 'Chivo', sans-serif; }\n  .profile__photo {\n    display: flex;\n    order: 3;\n    flex-direction: column;\n    justify-content: flex-end;\n    margin-top: 0px; }\n  .profile__photo__img {\n    margin-bottom: 5px;\n    display: flex;\n    flex-direction: column;\n    max-height: 4rem; }\n    .profile__photo__img__photo {\n      max-height: 5rem;\n      border-radius: 100px; }\n  .profile__photo__time {\n    font-size: 10px;\n    color: #6d6d6d;\n    align-self: flex-end;\n    padding-right: 10px; }\n  .profile__info__name-container {\n    padding-top: 5px;\n    padding-bottom: 5px;\n    padding-left: 10px;\n    display: flex;\n    font-size: 15px; }\n  .profile__info__description {\n    font-size: 1 rem; }\n\n.profile-active {\n  border-color: black; }\n\n.name {\n  border: 0;\n  margin: 0; }\n\n/* carousel */\n/* insert media querries here!!!! */\n.carousel {\n  background-color: rgba(237, 243, 231, 0.8);\n  min-height: 400px;\n  padding: 10px;\n  margin-top: 20px;\n  border-radius: 40px;\n  margin: 1em; }\n\n.bottomMenu {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: fixed;\n  bottom: 0;\n  background: linear-gradient(to left top, gray, gray);\n  color: black;\n  width: 100%;\n  height: 5vh; }\n  .bottomMenu .bottomButton {\n    width: 20%;\n    height: 5vh;\n    background: transparent;\n    font-size: 30px;\n    border-left: 1px solid black;\n    border-right: 1px solid black;\n    border-top: 0;\n    border-bottom: 0; }\n\n.spacer {\n  width: 100vw; }\n\n.content {\n  padding: 0 !important;\n  text-align: center; }\n", ""]);
 
 // exports
 
@@ -64378,9 +64377,7 @@ var ProfileContainer = function (_React$Component) {
                         switch (_context2.prev = _context2.next) {
                             case 0:
                                 _context2.next = 2;
-                                return fetch("/db/usdanUsers", {
-                                    method: "POST"
-                                });
+                                return fetch("/db/usdanUsers");
 
                             case 2:
                                 data = _context2.sent;
@@ -64392,7 +64389,7 @@ var ProfileContainer = function (_React$Component) {
 
                                 console.log(data);
                                 this.setState({
-                                    userProfiles: data
+                                    userProfiles: data.currentUsers
                                 });
 
                             case 8:
@@ -64418,7 +64415,7 @@ var ProfileContainer = function (_React$Component) {
                 "div",
                 null,
                 (0, _keys2.default)(this.state.userProfiles).map(function (profile, index) {
-                    return _react2.default.createElement(_Profile2.default, { key: index, info: _this2.state.userProfiles });
+                    return _react2.default.createElement(_Profile2.default, { key: index, info: _this2.state.userProfiles[index] });
                 })
             );
         }
@@ -66112,6 +66109,7 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var locationUser = "usdan";
+var peoplePreferences = [];
 
 var handleSubmit = function handleSubmit() {
     fetch("/db/addToUsdan", {

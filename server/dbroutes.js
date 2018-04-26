@@ -20,27 +20,24 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.post("/interests", (req, res) => {
     // console.log(JSON.parse(req.body.interests))
     const interests = req.body.interests;
-    User.update({ _id: '5add5601c1518c001443def4' }, { $set: { preferences: interests } }, () => {
+    User.update({ _id: '5add593349b3740014f08a60' }, { $set: { preferences: interests } }, () => {
 		console.log(("added interets"));
 	});
 });
-app.post("/usdanUsers", (req, res) => {
+app.get("/usdanUsers", (req, res) => {
     User.find({ 'location': 'usdan' }, function (err, people) {
         if (err) return  new Error(err);
         console.log(people);
         res.json({
             currentUsers:people
         })
-        // Prints "Space Ghost is a talk show host".
-        // console.log('%s %s is a %s.', person.name.first, person.name.last,
-        //   person.occupation);
       });
 });
-
+//adding locations on click
 app.post("/addToUsdan", (req, res) => {
     // console.log(JSON.parse(req.body.interests))
     const location = req.body.location;
-    User.update({ _id: '5add5601c1518c001443def4' }, { $set: { location: location } }, () => {
+    User.update({ _id: '5add593349b3740014f08a60' }, { $set: { location: location } }, () => {
 		console.log(("added location " + location));
 	});
 });

@@ -15,14 +15,12 @@ class ProfileContainer extends React.Component{
     }
 
     async getusers() {
-        let data = await fetch("/db/usdanUsers", {
-            method: "POST"
-        });
+        let data = await fetch("/db/usdanUsers");
 
         data = await data.json();
         console.log(data);
         this.setState({
-            userProfiles: data
+            userProfiles: data.currentUsers
         });
     }
 
@@ -30,7 +28,7 @@ class ProfileContainer extends React.Component{
         return(
             <div>
                 {Object.keys(this.state.userProfiles).map( (profile, index) =>
-                 <Profile key={index} info={this.state.userProfiles} />) }
+                 <Profile key={index} info={this.state.userProfiles[index]} />) }
             </div>
         )
     }

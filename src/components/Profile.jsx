@@ -18,11 +18,10 @@ class Profile extends React.Component{
                 <div className="profile__info">
                     <div className="profile__info__name-container">
                         <p className="name">
-                            uros
-                            <b>{this.props.info.name}</b>
+                            <b>{this.props.info.firstName}</b>
                         </p>
                     </div>
-                    <p className="profile__info__description">Tag1 tag2 tag3</p>
+                    <p className="profile__info__description">{this.props.info.preferences}</p>
                </div>
 
             </div>

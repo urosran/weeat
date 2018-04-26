@@ -2,6 +2,8 @@ import React from 'react';
 
 
 let locationUser = "usdan";
+let peoplePreferences = [];
+
 
 const handleSubmit = function(){
     fetch("/db/addToUsdan", {
@@ -13,6 +15,8 @@ const handleSubmit = function(){
           location:locationUser,
         })
       })
+
+
 }
 
 class BottomMenu extends React.Component{
