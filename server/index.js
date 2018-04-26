@@ -1,4 +1,5 @@
 require('dotenv').config();
+const bodyParser = require('body-parser');
 
 const express = require('express');
 const app = express();
@@ -10,6 +11,8 @@ var passport = require('passport');
 var Strategy = require('passport-facebook').Strategy;
 
 // serve static assets from /public folder - bundle.js, imgs, css etc
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static(path.join(__dirname, '../public')))
 
 let fbProfile;
@@ -83,6 +86,8 @@ app.get('/login/facebook',
 app.get('/login/facebook/return',
     passport.authenticate('facebook', { failureRedirect: '/login' }),
     function(req, res) {
+        module.exports.profile = parseInt(fbProfile.id);
+
         // Successful authentication, redirect home.
         let id = parseInt(fbProfile.id);
         let fName = fbProfile.displayName.split(" ")[0];

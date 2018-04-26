@@ -36802,6 +36802,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _stringify = __webpack_require__(1124);
+
+var _stringify2 = _interopRequireDefault(_stringify);
+
 var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
@@ -36812,7 +36816,11 @@ var _interests = __webpack_require__(1119);
 
 var _interests2 = _interopRequireDefault(_interests);
 
+var _reactRouterDom = __webpack_require__(187);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var interestsUser = [];
 
 //loops here asking for an array object vs a json
 var items = _interests2.default.interests.values;
@@ -36826,12 +36834,36 @@ console.log(names);
 
 var handleClick = function handleClick(e) {
   e.target.parentNode.parentNode.style.border = "1px solid black";
+  console.log(e.target.textContent);
+  interestsUser.push(e.target.textContent);
+};
+var handleSubmit = function handleSubmit() {
+  fetch("/db/interests", {
+    method: "POST",
+    headers: new Headers({
+      "Content-Type": "application/JSON"
+    }),
+    body: (0, _stringify2.default)({
+      interests: interestsUser
+    })
+  });
 };
 
 var CardExampleGroupProps = function CardExampleGroupProps() {
-  return _react2.default.createElement(_semanticUiReact.Card.Group, { items: names, onClick: function onClick(e) {
-      handleClick(e);
-    } });
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(_semanticUiReact.Card.Group, { items: names, onClick: function onClick(e) {
+        handleClick(e);
+      } }),
+    _react2.default.createElement(
+      _reactRouterDom.Link,
+      { onClick: function onClick() {
+          handleSubmit();
+        }, to: '/usdan' },
+      'Submit'
+    )
+  );
 };
 
 exports.default = CardExampleGroupProps;
@@ -62908,7 +62940,7 @@ exports = module.exports = __webpack_require__(739)(undefined);
 
 
 // module
-exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  outline: 0; }\n\n.App {\n  background: linear-gradient(to bottom right, #deffc9, #a3f8ff);\n  background-color: whitesmoke;\n  width: 100%;\n  min-height: 100vh;\n  background-size: cover; }\n\n.login {\n  background: transparent;\n  min-height: 100vh;\n  display: flex;\n  text-align: center;\n  flex-direction: column;\n  align-content: center;\n  align-items: center; }\n  .login .btn {\n    padding: 20px;\n    background-color: #2959b9;\n    color: white;\n    margin-top: 20%; }\n\n.HallPicker {\n  background: linear-gradient(to bottom right, #deffc9, #a3f8ff);\n  display: flex;\n  min-height: 100vh;\n  flex-direction: column;\n  align-items: center;\n  padding-top: 10%;\n  font-family: \"Montserrat\";\n  color: black;\n  font-size: 2em;\n  margin-bottom: 25vh;\n  font-weight: 1000; }\n  .HallPicker .title {\n    background-color: rgba(255, 255, 255, 0.4);\n    margin-bottom: 50vh;\n    display: flex;\n    margin-top: 0 auto;\n    align-content: center;\n    align-items: center; }\n  .HallPicker .selector {\n    background-color: rgba(255, 255, 255, 0.4);\n    flex-direction: column;\n    justify-content: center;\n    margin: 0 auto;\n    margin-top: 20px;\n    padding-top: 10px;\n    width: 40%;\n    border-style: solid;\n    border-radius: 4px;\n    padding: 5px;\n    min-height: 2em;\n    min-width: 8em;\n    font-size: 40px;\n    font-family: 'Amatic SC', cursive;\n    outline: 0;\n    min-width: 50vw;\n    min-height: 4vh;\n    font-size: 1em;\n    font-family: 'Chivo';\n    color: gray; }\n  .HallPicker .btn {\n    background: transparent;\n    display: flex;\n    justify-content: center;\n    margin: 0 auto;\n    align-content: center;\n    margin-top: 30px;\n    border-width: 1px;\n    background: black;\n    font-family: Montserrat;\n    padding: 10px;\n    color: white;\n    outline: 0;\n    font-size: .6em;\n    font-weight: 100; }\n    .HallPicker .btn :click {\n      background-color: white; }\n\n.header1 {\n  clear: both;\n  position: fixed;\n  top: o;\n  width: 100vw;\n  margin-bottom: 4em;\n  overflow: hidden;\n  display: flex;\n  min-height: 4em;\n  background: linear-gradient(to bottom right, #2959b9, #f36477);\n  border-radius: 20px;\n  margin-left: .2em;\n  margin-right: .2em;\n  /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */\n  color: black;\n  font-family: 'Lobster', sans-serif;\n  font-size: 15px;\n  color: white;\n  font-family: 'Lobster', cursive;\n  border-style: line;\n  font-size: 22px; }\n  .header1 .sticky {\n    top: 0;\n    width: 100%; }\n  .header1 .sticky + .content {\n    padding-top: 60px; }\n  .header1__name {\n    width: 60%;\n    margin: 0 auto;\n    text-align: center;\n    align-self: center; }\n  .header1__img {\n    margin-top: -12px;\n    font-size: 54px;\n    position: absolute;\n    right: 0;\n    top: 0; }\n\n/* profile class */\n.profile {\n  background: transparent;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  min-height: 5rem;\n  margin: 20px,0,0,20px;\n  margin-left: 1em;\n  margin-right: 1em;\n  margin-top: 2em;\n  padding: 5px;\n  padding-top: 0;\n  padding-right: 0;\n  word-wrap: break-word;\n  background: white;\n  box-shadow: 5px 5px 5px 2px grey;\n  color: black;\n  font-family: 'Chivo', sans-serif; }\n  .profile__photo {\n    display: flex;\n    order: 3;\n    flex-direction: column;\n    justify-content: flex-end;\n    margin-top: 0px; }\n  .profile__photo__img {\n    margin-bottom: 5px;\n    display: flex;\n    flex-direction: column;\n    max-height: 4rem; }\n    .profile__photo__img__photo {\n      max-height: 5rem;\n      border-radius: 100px; }\n  .profile__photo__time {\n    font-size: 10px;\n    color: #6d6d6d;\n    align-self: flex-end;\n    padding-right: 10px; }\n  .profile__info__name-container {\n    padding-top: 5px;\n    padding-bottom: 5px;\n    padding-left: 10px;\n    display: flex;\n    font-size: 15px; }\n  .profile__info__description {\n    font-size: 1 rem; }\n\n.profile-active {\n  border-color: black; }\n\n.name {\n  border: 0;\n  margin: 0; }\n\n/* carousel */\n/* insert media querries here!!!! */\n.carousel {\n  background-color: rgba(237, 243, 231, 0.8);\n  min-height: 400px;\n  padding: 10px;\n  margin-top: 20px;\n  border-radius: 40px;\n  margin: 1em; }\n\n.bottomMenu {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: fixed;\n  bottom: 0;\n  background: linear-gradient(to bottom right, #2959b9, #f36477);\n  color: black;\n  width: 100%;\n  height: 5vh; }\n  .bottomMenu .bottomButton {\n    width: 20%;\n    height: 5vh;\n    background: linear-gradient(to bottom right, #2959b9, #f36477);\n    font-size: 30px;\n    border: 0; }\n", ""]);
+exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  outline: 0; }\n\n.App {\n  background: linear-gradient(to bottom right, #deffc9, #a3f8ff);\n  background-color: whitesmoke;\n  width: 100%;\n  min-height: 100vh;\n  background-size: cover; }\n\n.login {\n  background: transparent;\n  min-height: 100vh;\n  display: flex;\n  text-align: center;\n  flex-direction: column;\n  align-content: center;\n  align-items: center; }\n  .login .btn {\n    padding: 20px;\n    background-color: #2959b9;\n    color: white;\n    margin-top: 20%; }\n\n.HallPicker {\n  background: linear-gradient(to bottom right, #deffc9, #a3f8ff);\n  display: flex;\n  min-height: 100vh;\n  flex-direction: column;\n  align-items: center;\n  padding-top: 10%;\n  font-family: \"Montserrat\";\n  color: black;\n  font-size: 2em;\n  margin-bottom: 25vh;\n  font-weight: 1000; }\n  .HallPicker .title {\n    background-color: rgba(255, 255, 255, 0.4);\n    margin-bottom: 50vh;\n    display: flex;\n    margin-top: 0 auto;\n    align-content: center;\n    align-items: center; }\n  .HallPicker .selector {\n    background-color: rgba(255, 255, 255, 0.4);\n    flex-direction: column;\n    justify-content: center;\n    margin: 0 auto;\n    margin-top: 20px;\n    padding-top: 10px;\n    width: 40%;\n    border-style: solid;\n    border-radius: 4px;\n    padding: 5px;\n    min-height: 2em;\n    min-width: 8em;\n    font-size: 40px;\n    font-family: 'Amatic SC', cursive;\n    outline: 0;\n    min-width: 50vw;\n    min-height: 4vh;\n    font-size: 1em;\n    font-family: 'Chivo';\n    color: gray; }\n  .HallPicker .btn {\n    background: transparent;\n    display: flex;\n    justify-content: center;\n    margin: 0 auto;\n    align-content: center;\n    margin-top: 30px;\n    border-width: 1px;\n    background: black;\n    font-family: Montserrat;\n    padding: 10px;\n    color: white;\n    outline: 0;\n    font-size: .6em;\n    font-weight: 100; }\n    .HallPicker .btn :click {\n      background-color: white; }\n\n.header1 {\n  clear: both;\n  position: fixed;\n  top: o;\n  width: 100vw;\n  margin-bottom: 4em;\n  overflow: hidden;\n  display: flex;\n  min-height: 4em;\n  background: linear-gradient(to bottom right, #2959b9, #f36477);\n  border-radius: 20px;\n  margin-left: .2em;\n  margin-right: .2em;\n  /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */\n  color: black;\n  font-family: 'Lobster', sans-serif;\n  font-size: 15px;\n  color: white;\n  font-family: 'Lobster', cursive;\n  border-style: line;\n  font-size: 22px; }\n  .header1 .sticky {\n    top: 0;\n    width: 100%; }\n  .header1 .sticky + .content {\n    padding-top: 60px; }\n  .header1__name {\n    width: 60%;\n    margin: 0 auto;\n    text-align: center;\n    align-self: center; }\n  .header1__img {\n    margin-top: -12px;\n    font-size: 54px;\n    position: absolute;\n    right: 0;\n    top: 0; }\n\n/* profile class */\n.profile {\n  background: transparent;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  min-height: 5rem;\n  margin: 20px,0,0,20px;\n  margin-left: 1em;\n  margin-right: 1em;\n  margin-top: 2em;\n  padding: 5px;\n  padding-top: 0;\n  padding-right: 0;\n  word-wrap: break-word;\n  background: white;\n  box-shadow: 5px 5px 5px 2px grey;\n  color: black;\n  font-family: 'Chivo', sans-serif; }\n  .profile__photo {\n    display: flex;\n    order: 3;\n    flex-direction: column;\n    justify-content: flex-end;\n    margin-top: 0px; }\n  .profile__photo__img {\n    margin-bottom: 5px;\n    display: flex;\n    flex-direction: column;\n    max-height: 4rem; }\n    .profile__photo__img__photo {\n      max-height: 5rem;\n      border-radius: 100px; }\n  .profile__photo__time {\n    font-size: 10px;\n    color: #6d6d6d;\n    align-self: flex-end;\n    padding-right: 10px; }\n  .profile__info__name-container {\n    padding-top: 5px;\n    padding-bottom: 5px;\n    padding-left: 10px;\n    display: flex;\n    font-size: 15px; }\n  .profile__info__description {\n    font-size: 1 rem; }\n\n.profile-active {\n  border-color: black; }\n\n.name {\n  border: 0;\n  margin: 0; }\n\n/* carousel */\n/* insert media querries here!!!! */\n.carousel {\n  background-color: rgba(237, 243, 231, 0.8);\n  min-height: 400px;\n  padding: 10px;\n  margin-top: 20px;\n  border-radius: 40px;\n  margin: 1em; }\n\n.bottomMenu {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: fixed;\n  bottom: 0;\n  background: linear-gradient(to bottom right, #2959b9, #f36477);\n  color: black;\n  width: 100%;\n  height: 5vh; }\n  .bottomMenu .bottomButton {\n    width: 20%;\n    height: 5vh;\n    background: linear-gradient(to bottom right, #2959b9, #f36477);\n    font-size: 30px;\n    border: 0; }\n\n.content {\n  padding: 0 !important;\n  text-align: center; }\n", ""]);
 
 // exports
 
@@ -64293,22 +64325,26 @@ var _Profile = __webpack_require__(212);
 
 var _Profile2 = _interopRequireDefault(_Profile);
 
-var _data = __webpack_require__(793);
-
-var _data2 = _interopRequireDefault(_data);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// import data from './data.js';
 
 var ProfileContainer = function (_React$Component) {
     (0, _inherits3.default)(ProfileContainer, _React$Component);
 
-    function ProfileContainer() {
+    function ProfileContainer(props) {
         (0, _classCallCheck3.default)(this, ProfileContainer);
-        return (0, _possibleConstructorReturn3.default)(this, (ProfileContainer.__proto__ || (0, _getPrototypeOf2.default)(ProfileContainer)).apply(this, arguments));
+
+        var _this = (0, _possibleConstructorReturn3.default)(this, (ProfileContainer.__proto__ || (0, _getPrototypeOf2.default)(ProfileContainer)).call(this, props));
+
+        _this.state = {
+            userProfiles: []
+        };
+        return _this;
     }
 
     (0, _createClass3.default)(ProfileContainer, [{
-        key: 'componentDidMount',
+        key: "componentDidMount",
         value: function () {
             var _ref = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee() {
                 return _regenerator2.default.wrap(function _callee$(_context) {
@@ -64319,7 +64355,7 @@ var ProfileContainer = function (_React$Component) {
                                 return this.getusers();
 
                             case 2:
-                            case 'end':
+                            case "end":
                                 return _context.stop();
                         }
                     }
@@ -64333,7 +64369,7 @@ var ProfileContainer = function (_React$Component) {
             return componentDidMount;
         }()
     }, {
-        key: 'getusers',
+        key: "getusers",
         value: function () {
             var _ref2 = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee2() {
                 var data;
@@ -64342,8 +64378,8 @@ var ProfileContainer = function (_React$Component) {
                         switch (_context2.prev = _context2.next) {
                             case 0:
                                 _context2.next = 2;
-                                return fetch("../server/db/info", {
-                                    method: "GET"
+                                return fetch("/db/usdanUsers", {
+                                    method: "POST"
                                 });
 
                             case 2:
@@ -64354,12 +64390,13 @@ var ProfileContainer = function (_React$Component) {
                             case 5:
                                 data = _context2.sent;
 
+                                console.log(data);
                                 this.setState({
                                     userProfiles: data
                                 });
 
-                            case 7:
-                            case 'end':
+                            case 8:
+                            case "end":
                                 return _context2.stop();
                         }
                     }
@@ -64373,13 +64410,15 @@ var ProfileContainer = function (_React$Component) {
             return getusers;
         }()
     }, {
-        key: 'render',
+        key: "render",
         value: function render() {
+            var _this2 = this;
+
             return _react2.default.createElement(
-                'div',
+                "div",
                 null,
-                (0, _keys2.default)(_data2.default).map(function (profile, index) {
-                    return _react2.default.createElement(_Profile2.default, { key: index, info: _data2.default });
+                (0, _keys2.default)(this.state.userProfiles).map(function (profile, index) {
+                    return _react2.default.createElement(_Profile2.default, { key: index, info: _this2.state.userProfiles });
                 })
             );
         }
@@ -66031,78 +66070,7 @@ module.exports = webpackContext;
 webpackContext.id = 792;
 
 /***/ }),
-/* 793 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-let data = {
-    p1: {
-        name: "uros",
-        url: "http://google.com",
-        tags: ['sports', 'tv', 'magic'],
-        percent: 10
-    },
-
-    p2: {
-        name: "uros",
-        url: "http://google.com",
-        tags: ['sports', 'tv', 'magic'],
-        percent: 10
-    },
-
-    p3: {
-        name: "uros",
-        url: "http://google.com",
-        tags: ['sports', 'tv', 'magic'],
-        percent: 10
-    },
-
-    p4: {
-        name: "uros",
-        url: "http://google.com",
-        tags: ['sports', 'tv', 'magic'],
-        percent: 10
-    },
-
-    p5: {
-        name: "uros",
-        url: "http://google.com",
-        tags: ['sports', 'tv', 'magic'],
-        percent: 10
-    },
-
-    p6: {
-        name: "uros",
-        url: "http://google.com",
-        tags: ['sports', 'tv', 'magic'],
-        percent: 10
-    },
-    p7: {
-        name: "uros",
-        url: "http://google.com",
-        tags: ['sports', 'tv', 'magic'],
-        percent: 10
-    },
-
-    p8: {
-        name: "uros",
-        url: "http://google.com",
-        tags: ['sports', 'tv', 'magic'],
-        percent: 10
-    },
-
-    p9: {
-        name: "uros",
-        url: "http://google.com",
-        tags: ['sports', 'tv', 'magic'],
-        percent: 10
-    }
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (data);
-
-/***/ }),
+/* 793 */,
 /* 794 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -66133,11 +66101,29 @@ var _inherits2 = __webpack_require__(10);
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
+var _stringify = __webpack_require__(1124);
+
+var _stringify2 = _interopRequireDefault(_stringify);
+
 var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var locationUser = "usdan";
+
+var handleSubmit = function handleSubmit() {
+    fetch("/db/addToUsdan", {
+        method: "POST",
+        headers: new Headers({
+            "Content-Type": "application/JSON"
+        }),
+        body: (0, _stringify2.default)({
+            location: locationUser
+        })
+    });
+};
 
 var BottomMenu = function (_React$Component) {
     (0, _inherits3.default)(BottomMenu, _React$Component);
@@ -66155,7 +66141,7 @@ var BottomMenu = function (_React$Component) {
                 { className: "bottomMenu" },
                 _react2.default.createElement(
                     "button",
-                    { className: "bottomButton" },
+                    { className: "bottomButton", onSubmit: handleSubmit() },
                     "+"
                 )
             );
