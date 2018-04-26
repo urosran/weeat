@@ -74,7 +74,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use("/db", require("./dbroutes.js"));
+
 
 app.get('/login/facebook',
     passport.authenticate('facebook'));
@@ -125,6 +125,8 @@ app.get('/profile',
 app.get("/*", (req, res) => {
     res.sendFile(path.resolve("public/index.html"));
 });
+
+app.use("/db", require("./dbroutes.js"));
 
 // startDb().then(()=>{
 //     app.listen(process.env.PORT, ()=>{
