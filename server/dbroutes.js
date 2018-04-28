@@ -9,13 +9,11 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
+app.get('/id', function(req, res, next) {
+    var someAttribute = req.session.profile;
+    res.send(`This will print the attribute I set earlier: ${someAttribute}`);
+  });
 
-// app.post('/new-user', (req, res) => {
-//     user.create({
-//         firstName: req.body.firstName,
-//         preferences: req.body.preferences
-//     })
-// });
 
 app.post("/interests", (req, res) => {
     // console.log(JSON.parse(req.body.interests))

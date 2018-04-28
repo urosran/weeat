@@ -1,5 +1,6 @@
 require('dotenv').config();
 const bodyParser = require('body-parser');
+// import session from 'express-session';
 
 const express = require('express');
 const app = express();
@@ -22,7 +23,8 @@ let fbProfile;
 // app.use(require('morgan')('combined'));
 app.use(require('cookie-parser')());
 app.use(require('body-parser').urlencoded({ extended: true }));
-app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+app.use(require('express-session')({
+     secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 
 // Initialize Passport and restore authentication state, if any, from the
 // session.
@@ -99,16 +101,19 @@ app.get('/login/facebook/return',
             if (existingUser) {
                 console.log("USER FOUNDDDDDDDDDDDDDDDDDDDDDDDDDDDDD")
                 console.log(existingUser)
+                req.session.profile = existingUser;
               return res.redirect('/usdan');
             }
             user.save((err) => {
               if (err) { return }
               console.log("savedddddddddddddddddddddddddddddddddddddddddddddd")
+              req.session.profile = existingUser;
               return res.redirect('/createAcc');
             });
           });
     }
 );
+
 app.use("/db", require("./dbroutes.js"));
 
 app.get('/profile',
