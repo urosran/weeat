@@ -11,6 +11,9 @@ app.use(bodyParser.urlencoded({extended:false}));
 
 app.get('/id', function(req, res, next) {
     var someAttribute = req.session.profile;
+    console.log(someAttribute);
+    console.log(JSON.parse(someAttribute));
+
     res.send(`This will print the attribute I set earlier: ${someAttribute}`);
   });
 
