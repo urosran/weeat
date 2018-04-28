@@ -64393,7 +64393,7 @@ var ProfileContainer = function (_React$Component) {
                             case 5:
                                 data = _context2.sent;
 
-                                console.log(data);
+                                console.log("zzz" + data);
                                 this.setState({
                                     userProfiles: data.currentUsers
                                 });
@@ -64417,6 +64417,7 @@ var ProfileContainer = function (_React$Component) {
         value: function render() {
             var _this2 = this;
 
+            console.log(this.state);
             return _react2.default.createElement(
                 "div",
                 null,

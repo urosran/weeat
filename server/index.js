@@ -52,6 +52,7 @@ passport.use(new Strategy({
     return cb(null, profile);
 }));
 
+
 // Configure Passport authenticated session persistence.
 //
 // In order to restore authentication state across HTTP requests, Passport needs
@@ -62,7 +63,7 @@ passport.use(new Strategy({
 // example does not have a database, the complete Facebook profile is serialized
 // and deserialized.
 passport.serializeUser(function(user, cb) {
-    cb(null, user);
+    cb(null, user.id);
 });
 
 passport.deserializeUser(function(obj, cb) {
@@ -74,14 +75,8 @@ app.use((req, res, next) => {
     next();
 });
 
-
-
 app.get('/login/facebook',
     passport.authenticate('facebook'));
-
-// app.get('/login/facebook/return', (req, res ) => {
-//     res.redirect("/usdan");
-// });
 
 app.get('/login/facebook/return',
     passport.authenticate('facebook', { failureRedirect: '/login' }),
@@ -114,6 +109,7 @@ app.get('/login/facebook/return',
           });
     }
 );
+app.use("/db", require("./dbroutes.js"));
 
 app.get('/profile',
     require('connect-ensure-login').ensureLoggedIn(),
@@ -126,16 +122,6 @@ app.get("/*", (req, res) => {
     res.sendFile(path.resolve("public/index.html"));
 });
 
-app.use("/db", require("./dbroutes.js"));
-
-// startDb().then(()=>{
-//     app.listen(process.env.PORT, ()=>{
-//         console.log(`running on port ${process.env.PORT}`);
-//     });
-//     app.listen(process.env.PORT, function() {
-//         console.loog("RUNNING ON PORT", process.env.PORT);
-//     })
-// });
 
 async function startServer() {
     await startDb()

@@ -18,13 +18,14 @@ class ProfileContainer extends React.Component{
         let data = await fetch("/db/usdanUsers");
 
         data = await data.json();
-        console.log(data);
+        console.log("zzz" + data);
         this.setState({
             userProfiles: data.currentUsers
         });
     }
 
     render(){
+        console.log(this.state)
         return(
             <div>
                 {Object.keys(this.state.userProfiles).map( (profile, index) =>
