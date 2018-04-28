@@ -9,13 +9,11 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
-app.get('/id', function(req, res, next) {
-    var someAttribute = req.session.profile;
-    console.log(someAttribute);
-    console.log(JSON.parse(someAttribute));
-
-    res.send(`This will print the attribute I set earlier: ${someAttribute}`);
-  });
+// app.get('/id', function(req, res, next) {
+//     var someAttribute = req.session.profile;
+//     console.log(someAttribute);
+//     res.json(someAttribute);
+//   });
 
 
 app.post("/interests", (req, res) => {
@@ -23,8 +21,10 @@ app.post("/interests", (req, res) => {
     const interests = req.body.interests;
     console.log(req.user.id)
     console.log(req + " =zzzzzzzzzzzzzzzzzzzzzzS");
-    User.update({ _id: '5add593349b3740014f08a60' }, { $set: { preferences: interests } }, () => {
-		console.log(("added interets"));
+    User.update({ _id: req.session.profile._id }, { $set: { preferences: interests } }, () => {
+        console.log(("added interets"));
+        console.log((req.session.profile ));
+
 	});
 });
 app.get("/usdanUsers", (req, res) => {
@@ -40,7 +40,7 @@ app.get("/usdanUsers", (req, res) => {
 app.post("/addToUsdan", (req, res) => {
     // console.log(JSON.parse(req.body.interests))
     const location = req.body.location;
-    User.update({ _id: '5add593349b3740014f08a60' }, { $set: { location: location } }, () => {
+    User.update({ _id:req.session.profile._id  }, { $set: { location: location } }, () => {
 		console.log(("added location " + location));
 	});
 });
